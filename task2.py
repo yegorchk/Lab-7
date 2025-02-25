@@ -14,6 +14,7 @@ res = json.loads(response.text)
 if res['status'] == 'error':
     print('You are trying to request results too far in the past. Please request the results no earlier than a month before the date you enter.')
 else:
+    print("\n--- News Article ---")
     source = res['articles'][0]['source']['name']
     print(f'Source: {source}')
     author = res['articles'][0]['author']
@@ -26,3 +27,4 @@ else:
     print(f'Content: {content}')
     publish_date = res['articles'][0]['publishedAt'][:-10]
     print(f'Publish Date: {publish_date}')
+    print("---------------------\n")
